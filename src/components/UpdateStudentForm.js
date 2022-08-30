@@ -17,7 +17,6 @@ const UpdateStudentForm = () => {
     register,
     formState: { errors },
     handleSubmit,
-    reset,
     setValue,
   } = useForm();
 
