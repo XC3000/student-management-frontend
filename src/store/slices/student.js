@@ -4,17 +4,17 @@ import { axiosInstance } from "../../config";
 import moment from "moment";
 
 const fetchStudents = createAsyncThunk(`fetch students`, async () => {
-  const response = await axiosInstance.get("/student");
+  const response = await axiosInstance.get("/students");
   return response.data.data;
 });
 
 const addStudent = createAsyncThunk(`add student`, async (studentData) => {
-  const response = await axiosInstance.post("/student", studentData);
+  const response = await axiosInstance.post("/students", studentData);
   return response.data.data;
 });
 
 const deleteStudent = createAsyncThunk(`delete student`, async (id) => {
-  const response = await axiosInstance.delete(`/student/${id}`);
+  const response = await axiosInstance.delete(`/students/${id}`);
   return response.data.data;
 });
 
@@ -23,7 +23,7 @@ const updateStudent = createAsyncThunk(
   async (studentData) => {
     const id = studentData._id ? studentData._id : studentData.get("_id");
 
-    const response = await axiosInstance.put(`/student/${id}`, studentData);
+    const response = await axiosInstance.put(`/students/${id}`, studentData);
     return response.data.data;
   }
 );
